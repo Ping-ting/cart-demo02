@@ -10,11 +10,8 @@
 </template>
 
 <script>
-import bus from '@/components/eventBus.js'
 export default {
     props: {
-        // 接收id
-        // 使用 EventBus 方案将 id，count 传给 App
         id: {
             require: true,
             type: Number
@@ -26,20 +23,10 @@ export default {
     },
     methods: {
         sub(){
-            if(this.num - 1 == 0) return
-            const obj = {
-                id: this.id,
-                value: this.num - 1
-            }
-            bus.$emit('share' , obj)
+            this.$emit('num-change' , this.num - 1)
         },
         add(){
-            // 发送给 App 的数据 {id,value} 商品 id 购买数量
-            const obj = {
-                id: this.id,
-                value: this.num + 1
-            }
-            bus.$emit('share' , obj)
+            this.$emit('num-change' , this.num + 1)
         }
     }
 }

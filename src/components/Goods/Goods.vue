@@ -19,7 +19,7 @@
                 <!-- 商品价格 -->
                 <span class="goods-price">￥{{ price }}</span>
                 <!-- 商品的数量 -->
-                <Count :num="count" :id="id"></Count>
+                <slot></slot>
             </div>
         </div>
     </div>

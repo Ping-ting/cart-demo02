@@ -14,7 +14,10 @@
         :count="item.goods_count"
         @state-change="getNewState"
         >
-        
+        <Count 
+        :num="item.goods_count" 
+        @num-change="getNewNum(item,$event)"
+        ></Count>
         </Goods>
 
         <Footer 
@@ -91,6 +94,9 @@ export default {
         },
         getFullState(e){
             this.list.forEach(item => item.goods_state = e)
+        },
+        getNewNum(item,e){
+            item.goods_count = e
         }
     },
     created(){
